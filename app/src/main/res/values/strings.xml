@@ -21,4 +21,7 @@
     <string name="terms">Terms</string>
     <string name="and">and</string>
     <string name="conditions">Conditions.</string>
+    <string name="next_with_vector"><![CDATA[Next >]]></string>
+    <string name="get_started">Get Started</string>
+    <string name="full_name">Full name</string>
 </resources>
