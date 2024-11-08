@@ -24,4 +24,5 @@
     <string name="next_with_vector"><![CDATA[Next >]]></string>
     <string name="get_started">Get Started</string>
     <string name="full_name">Full name</string>
+    <string name="by_checking_the_box_you_agree_to_our_terms_and_conditions">By checking the box you agree to our Terms and Conditions.</string>
 </resources>

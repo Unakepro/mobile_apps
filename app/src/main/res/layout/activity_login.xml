@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,39 +42,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeBackText" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editMail"
-        android:layout_width="match_parent"
+        style="@style/CustomInputLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_background"
-        android:drawableEnd="@drawable/mail"
-        android:drawablePadding="8dp"
+        android:layout_marginTop="95dp"
         android:hint="@string/enter_your_email"
-        android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:textSize="18sp"
+        app:boxBackgroundColor="#EEEEEE"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/singInText" />
+        app:layout_constraintTop_toBottomOf="@+id/singInText">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/mail"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editPassword"
-        android:layout_width="match_parent"
+        style="@style/CustomInputLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_background"
-        android:drawableEnd="@drawable/lock"
-        android:drawablePadding="8dp"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:textSize="18sp"
+        app:boxBackgroundColor="#EEEEEE"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMail" />
+        app:layout_constraintTop_toBottomOf="@+id/editMail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/lock"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
         android:id="@+id/checkbox_remember_me"
@@ -142,4 +150,4 @@
         app:layout_constraintStart_toEndOf="@+id/newMemberText"
         app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
