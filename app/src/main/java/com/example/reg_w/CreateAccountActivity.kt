@@ -13,8 +13,10 @@ class CreateAccountActivity : AppCompatActivity() {
         val loginTextView: TextView = findViewById(R.id.loginText)
 
         loginTextView.setOnClickListener {
-            val intent = Intent(this@CreateAccountActivity,  MainActivity::class.java)
+            val intent = Intent(this@CreateAccountActivity,  LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
+            finish()
         }
     }
 }
