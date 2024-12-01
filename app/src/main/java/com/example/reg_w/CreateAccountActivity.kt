@@ -2,15 +2,30 @@ package com.example.reg_w
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class CreateAccountActivity : AppCompatActivity() {
+    val credentialsManager = CredentialsManager()
+
+    val loginTextView: TextView
+        get() = findViewById(R.id.loginText)
+
+    val registerButton: Button
+        get() = findViewById(R.id.signUpButton)
+
+    val editMailContent: TextInputEditText
+        get() = findViewById(R.id.editEmailContent)
+
+    val editMailLayout: TextInputLayout
+        get() = findViewById(R.id.editMail)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
-
-        val loginTextView: TextView = findViewById(R.id.loginText)
 
         loginTextView.setOnClickListener {
             val intent = Intent(this@CreateAccountActivity,  LoginActivity::class.java)
@@ -18,5 +33,21 @@ class CreateAccountActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        registerButton.setOnClickListener {
+            val email = editMailContent.text.toString()
+
+            var isValid = true
+
+            if (!credentialsManager.isEmailValid(email)) {
+                editMailLayout.error = "Invalid email format"
+                isValid = false
+            } else if (!credentialsManager.isLoginEmailValid(email)) {
+                editMailLayout.error = "Email is already taken"
+                isValid = false
+            } else {
+                editMailLayout.isErrorEnabled = false
+            }
+        }
+
     }
 }
