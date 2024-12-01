@@ -1,8 +1,10 @@
 package com.example.reg_w
 
 class CredentialsManager {
-    val correctEmail = "test@te.st"
-    val correctPassword = "1234"
+    var credentials = mutableMapOf<String, String>(
+        Pair("test@te.st", "1234"),
+        "test2@te.st" to "1234"
+    )
 
     fun isEmailValid(email: String): Boolean {
         if (email.isEmpty()) {
@@ -21,10 +23,16 @@ class CredentialsManager {
         return true;
     }
     fun isLoginEmailValid(email: String): Boolean {
-        return email == correctEmail
+        return credentials.containsKey(email)
     }
     fun isLoginPasswordValid(password: String): Boolean {
-        return password == correctPassword
+        return credentials.values.contains(password)
+    }
+    fun login(email: String, password: String): Boolean {
+        return credentials[email].equals(password)
+    }
+    fun register(fullName: String, email: String, phone: String, password: String) {
+        credentials.put(email, password)
     }
 
 }
