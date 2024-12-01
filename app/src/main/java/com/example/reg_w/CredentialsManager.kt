@@ -2,7 +2,7 @@ package com.example.reg_w
 
 class CredentialsManager {
     var credentials = mutableMapOf<String, String>(
-        Pair("test@te.st", "1234"),
+        "test@te.st" to "1234",
         "test2@te.st" to "1234"
     )
 
@@ -22,17 +22,21 @@ class CredentialsManager {
         }
         return true;
     }
+
     fun isLoginEmailValid(email: String): Boolean {
-        return credentials.containsKey(email)
+        return credentials.keys.any { it.equals(email, ignoreCase = true) }
     }
+
     fun isLoginPasswordValid(password: String): Boolean {
         return credentials.values.contains(password)
     }
+
     fun login(email: String, password: String): Boolean {
         return credentials[email].equals(password)
     }
+
     fun register(fullName: String, email: String, phone: String, password: String) {
-        credentials.put(email, password)
+        if(!isLoginEmailValid(email)) credentials.put(email, password)
     }
 
 }
