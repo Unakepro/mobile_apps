@@ -4,7 +4,6 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class CredentialsManagerTest {
-
     // Test empty email
     @Test
     fun givenEmptyEmail_thenReturnFalse() {
@@ -53,5 +52,16 @@ class CredentialsManagerTest {
         val isPasswordValid = credentialsManager.isPasswordValid("password123")
 
         assertEquals(true, isPasswordValid)
+    }
+
+    @Test
+    fun givenProperUnusedCredentials_whenUserRegister_thenSucceed() {
+        val credentialsManager = CredentialsManager()
+        val newEmail = "another@te.st"
+        val newPassword = "1234qwer"
+        credentialsManager.register("Full name", newEmail, "123456", newPassword)
+
+        val isLoginSuccess = credentialsManager.login(newEmail, newPassword)
+        assertTrue(isLoginSuccess)
     }
 }
