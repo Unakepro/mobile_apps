@@ -21,7 +21,7 @@ class CreateAccountActivity : AppCompatActivity() {
         get() = findViewById(R.id.editEmailContent)
 
     val editMailLayout: TextInputLayout
-        get() = findViewById(R.id.editMail)
+        get() = findViewById(R.id.editEmail)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class CreateAccountActivity : AppCompatActivity() {
             if (!credentialsManager.isEmailValid(email)) {
                 editMailLayout.error = "Invalid email format"
                 isValid = false
-            } else if (!credentialsManager.isLoginEmailValid(email)) {
+            } else if (credentialsManager.isLoginEmailValid(email)) {
                 editMailLayout.error = "Email is already taken"
                 isValid = false
             } else {
