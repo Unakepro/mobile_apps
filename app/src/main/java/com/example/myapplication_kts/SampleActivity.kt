@@ -9,8 +9,6 @@ import androidx.fragment.app.commit
 
 
 class SampleActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
