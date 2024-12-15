@@ -1,6 +1,6 @@
 package com.example.myapplication_kts
 
-class CredentialsManager {
+object CredentialsManager {
     var credentials = mutableMapOf<String, String>(
         "test@te.st" to "1234",
         "test2@te.st" to "1234"

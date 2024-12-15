@@ -13,7 +13,7 @@ import com.google.android.material.textfield.TextInputLayout
 class FragmentRegister : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val loginTextView = view.findViewById<TextView>(R.id.loginText)
 

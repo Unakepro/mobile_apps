@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 class FragmentLogin : Fragment(R.layout.fragment_login){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
         val editMailLayout = view.findViewById<TextInputLayout>(R.id.editMail)
 
         val editPasswordLayout = view.findViewById<TextInputLayout>(R.id.editPassword)
