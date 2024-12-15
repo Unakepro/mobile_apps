@@ -6,7 +6,7 @@ import org.junit.Assert.*
 class CredentialsManagerTest {
     @Test
     fun givenEmptyEmail_thenReturnFalse() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val isEmailValid = credentialsManager.isEmailValid("")
 
@@ -15,7 +15,7 @@ class CredentialsManagerTest {
 
     @Test
     fun givenWrongEmail_thenReturnFalse() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val isEmailValid = credentialsManager.isEmailValid("not_correct.com")
 
@@ -24,7 +24,7 @@ class CredentialsManagerTest {
 
     @Test
     fun givenProperEmail_thenReturnTrue() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val isEmailValid = credentialsManager.isEmailValid("username1@gmail.com")
 
@@ -33,7 +33,7 @@ class CredentialsManagerTest {
 
     @Test
     fun givenEmptyPassword_thenReturnFalse() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val isPasswordValid = credentialsManager.isPasswordValid("")
 
@@ -42,7 +42,7 @@ class CredentialsManagerTest {
 
     @Test
     fun givenFilledPassword_thenReturnTrue() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
 
         val isPasswordValid = credentialsManager.isPasswordValid("password123")
 
@@ -51,7 +51,7 @@ class CredentialsManagerTest {
 
     @Test
     fun givenProperUnusedCredentials_whenUserRegister_thenSucceed() {
-        val credentialsManager = CredentialsManager()
+        val credentialsManager = CredentialsManager
         val newEmail = "another@te.st"
         val newPassword = "1234qwer"
         credentialsManager.register("Full name", newEmail, "123456", newPassword)

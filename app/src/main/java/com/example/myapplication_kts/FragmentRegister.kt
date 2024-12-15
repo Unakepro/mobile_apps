@@ -23,23 +23,28 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
 
         val editMailLayout = view.findViewById<TextInputLayout>(R.id.editEmail)
 
+        val editPasswordContent = view.findViewById<TextInputEditText>(R.id.editPasswordContent)
+
+
         loginTextView.setOnClickListener {
             (activity as MainActivity).navigateToLoginFragment()
         }
         registerButton.setOnClickListener {
             val email = editMailContent.text.toString()
+            val password = editPasswordContent.text.toString()
 
             var isValid = true
             if (!credentialsManager.isEmailValid(email)) {
                 editMailLayout.error = "Invalid email format"
                 isValid = false
-            } else if (!credentialsManager.isLoginEmailValid(email)) {
+            } else if (credentialsManager.isLoginEmailValid(email)) {
                 editMailLayout.error = "Email is already taken"
                 isValid = false
             } else {
                 editMailLayout.isErrorEnabled = false
             }
             if (isValid) {
+                credentialsManager.register(email, password)
                 parentFragmentManager.popBackStack()
             }
         }
