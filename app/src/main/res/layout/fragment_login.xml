@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
-
+    tools:context=".FragmentLogin">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
@@ -17,90 +16,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/GetStartedText"
+        android:id="@+id/welcomeBackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="159dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="180dp"
         android:gravity="center"
-        android:text="@string/get_started"
+        android:text="@string/welcome_back"
         android:textColor="#252525"
-        android:textSize="38sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/CreateAccountText"
+        android:id="@+id/singInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="78dp"
         android:gravity="center"
-        android:text="@string/by_creating_a_free_account"
+        android:text="@string/sign_in_to_access_your_account"
         android:textColor="#252525"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/GetStartedText" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeBackText" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editFullName"
+        android:id="@+id/editMail"
         style="@style/CustomInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/full_name"
+        android:layout_marginTop="95dp"
+        android:hint="@string/enter_your_email"
         app:boxBackgroundColor="#EEEEEE"
-        app:endIconDrawable="@drawable/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CreateAccountText">
+        app:layout_constraintTop_toBottomOf="@+id/singInText">
 
         <com.google.android.material.textfield.TextInputEditText
-
+            android:id="@+id/editMailContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:padding="16dp"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editEmail"
-        style="@style/CustomInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/valid_email"
-        app:boxBackgroundColor="#EEEEEE"
-        app:endIconDrawable="@drawable/mail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editFullName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editEmailContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/mail"
             android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editPhone"
-        style="@style/CustomInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/phone_number"
-        app:boxBackgroundColor="#EEEEEE"
-        app:endIconDrawable="@drawable/smartphone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editEmail">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
             android:padding="16dp"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -110,16 +68,18 @@
         style="@style/CustomInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/strong_password"
+        android:layout_marginTop="25dp"
+        android:hint="@string/password"
         app:boxBackgroundColor="#EEEEEE"
-        app:endIconDrawable="@drawable/lock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editPhone">
+        app:layout_constraintTop_toBottomOf="@+id/editMail">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editPasswordContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/lock"
             android:inputType="textPassword"
             android:padding="16dp"
             android:textSize="18sp" />
@@ -129,14 +89,27 @@
         android:id="@+id/checkbox_remember_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="@string/by_checking_the_box_you_agree_to_our_terms_and_conditions"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/remember_me"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="35dp"
+        android:gravity="center"
+        android:text="@string/forget_password_1"
+        android:textColor="#6C63FF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/signInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -159,20 +132,20 @@
         android:layout_marginStart="83dp"
         android:layout_marginTop="23dp"
         android:gravity="center"
-        android:text="@string/already_a_member"
+        android:text="@string/new_member"
         android:textColor="#252525"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
     <TextView
-        android:id="@+id/loginText"
+        android:id="@+id/registerNowText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="23dp"
         android:gravity="center"
-        android:text="@string/log_in"
+        android:text="@string/register_now"
         android:textColor="#6C63FF"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/newMemberText"

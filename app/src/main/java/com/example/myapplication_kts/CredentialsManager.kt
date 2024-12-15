@@ -1,6 +1,6 @@
 package com.example.myapplication_kts
 
-class CredentialsManager {
+object CredentialsManager {
     var credentials = mutableMapOf<String, String>(
         "test@te.st" to "1234",
         "test2@te.st" to "1234"
@@ -35,8 +35,8 @@ class CredentialsManager {
         return credentials[email].equals(password)
     }
 
-    fun register(fullName: String, email: String, phone: String, password: String) {
-        if(!isLoginEmailValid(email)) credentials.put(email, password)
+    fun register(email: String, password: String) {
+        if(!isLoginEmailValid(email)) credentials[email] = password
     }
 
 }
